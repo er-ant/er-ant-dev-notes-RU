@@ -1,5 +1,7 @@
 # Здесь можно найти информацию о фронтенд разработке и разработке на TypeScript.
 Вдохновлено [вот этим стайлгайдом](https://github.com/tracetoio/styleguide/tree/master).
+> Разъяснение каждой настройки в TSConfig [здесь](https://gist.github.com/er-ant/e8c2f8c47ad871a4685c2a17800c86ae).
+>
 > TS линтер (eslint) базовый [здесь]()
 >
 > TS линтер (eslint) для ангуляр проектов [здесь]()
