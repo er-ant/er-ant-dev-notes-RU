@@ -41,13 +41,17 @@
 ```
   npm i eslint@9.27.0 @eslint/js@9.27.0
 ```
-### Установка плагина stylistic
+### Установка плагина stylistic (опционально)
 ```
   npm i @stylistic/eslint-plugin@4.4.0
 ```
-### Установка плагина typescript
+### Установка плагина typescript (опционально)
 ```
   npm i typescript typescript-eslint@8.33.0
+```
+### Установка этого репозитория для использования правил
+```
+  npm install git+https://github.com/er-ant/er-ant-dev-notes-RU.git
 ```
 ### Конфигурационный файл
 Добавить конфигурационный файл eslint.config.js в корень проекта. Логичнее всего настраивать под каждый проект свой конфиг. Пример:
@@ -57,9 +61,9 @@ import globals from 'globals';
 import stylistic from '@stylistic/eslint-plugin'
 import tseslint from 'typescript-eslint';
 
-import { ESLINTRULES } from './eslint.rules.mjs';
-import { STYLISTIC_ESLINTRULES } from './stylistic.eslint.rules.mjs';
-import { TS_ESLINTRULES } from './ts-eslint.rules.mjs';
+import { ESLINTRULES } from 'er-ant-dev-notes-RU/TypeScript/lints/eslint.rules.mjs';
+import { STYLISTIC_ESLINTRULES } from 'er-ant-dev-notes-RU/TypeScript/lints/stylistic.eslint.rules.mjs';
+import { TS_ESLINTRULES } from 'er-ant-dev-notes-RU/TypeScript/lints/ts-eslint.rules.mjs';
 
 export default tseslint.config(
   {
@@ -125,7 +129,8 @@ export default tseslint.config(
 1. При конфигурации правил можно использовать [инспектор](https://github.com/eslint/config-inspector).
 
 ## TODO:
-1. Добавить прекоммит
-1. Добавить гайд по настройке линта для IDE
-1. Добавить форматтер для кода
+1. Добавить прекоммит.
+1. Добавить форматтер для кода.
+1. Добавить гайд по настройке линта для IDE.
+1. Сделать конфиги переиспользуемыми как в официальных гайдах.
 1. Оптимизировать работу линта по [гайду](https://typescript-eslint.io/troubleshooting/typed-linting/performance/).
