@@ -1,5 +1,4 @@
 export const TS_ESLINTRULES = {
-  "no-unused-vars": ["off"],
   "@typescript-eslint/adjacent-overload-signatures": "error",
   "@typescript-eslint/array-type": ["error", {
     "default": "generic"
@@ -47,7 +46,7 @@ export const TS_ESLINTRULES = {
   "@typescript-eslint/no-duplicate-type-constituents": "error",
   "@typescript-eslint/no-dynamic-delete": "error",
   "@typescript-eslint/no-empty-function": "off",
-  "@typescript-eslint/no-empty-object-type": "error",
+  "@typescript-eslint/no-empty-object-type": "warn",
   "@typescript-eslint/no-extra-non-null-assertion": "error",
   "@typescript-eslint/no-extraneous-class": "error",
   "@typescript-eslint/no-floating-promises": "error",

@@ -33,18 +33,6 @@ export const STYLISTIC_ESLINTRULES = {
     "after": true
   }],
   "@stylistic/implicit-arrow-linebreak": ["error", "beside"],
-  "@stylistic/indent": ["error", 2, {
-    "SwitchCase": 1,
-    "MemberExpression": 1,
-    "FunctionDeclaration": { "parameters": "first" },
-    "FunctionExpression": { "parameters": "first" },
-    "CallExpression": { "arguments": "first" },
-    "ArrayExpression": 1,
-    "ObjectExpression": 1,
-    "ImportDeclaration": 1,
-    "flatTernaryExpressions": false,
-    "ignoreComments": true
-  }],
   "@stylistic/indent-binary-ops": ["error", 2],
   "@stylistic/key-spacing": ["error", { "mode": "strict" }],
   "@stylistic/keyword-spacing": ["error", {
@@ -119,5 +107,17 @@ export const STYLISTIC_ESLINTRULES = {
     "tabWidth": 2,
     "comments": 100
   }],
-  "@stylistic/newline-per-chained-call": ["error", { "ignoreChainWithDepth": 2 }]
+  "@stylistic/newline-per-chained-call": ["error", { "ignoreChainWithDepth": 2 }],
+  "@stylistic/indent": ["error", 2, {
+    "SwitchCase": 1,
+    "MemberExpression": 1,
+    "FunctionDeclaration": { "parameters": "first" },
+    "FunctionExpression": { "parameters": "first" },
+    "CallExpression": { "arguments": "first" },
+    "ArrayExpression": 1,
+    "ObjectExpression": 1,
+    "ImportDeclaration": 1,
+    "flatTernaryExpressions": false,
+    "ignoreComments": true
+  }]
 }

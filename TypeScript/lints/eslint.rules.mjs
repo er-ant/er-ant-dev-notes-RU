@@ -157,7 +157,7 @@ export const ESLINTRULES = {
   // But they still can change properties of objects passed as arguments.
   // Reduce requires to rewrite, so I added exception variable name.
   "no-param-reassign": ["error", {
-    "props": false,
+    "props": true,
     "ignorePropertyModificationsFor": ["acc"]
   }],
   "no-plusplus": ["off"],

@@ -1,12 +1,10 @@
 # Здесь можно найти информацию о фронтенд разработке и разработке на TypeScript.
-Вдохновлено [вот этим стайлгайдом](https://github.com/tracetoio/styleguide/tree/master).
+Вдохновлено [моим старым стайлгайдом](https://github.com/tracetoio/styleguide/tree/master).
 > Разъяснение каждой настройки в TSConfig [здесь](https://gist.github.com/er-ant/e8c2f8c47ad871a4685c2a17800c86ae).
 >
-> TS линтер (eslint) базовый [здесь]()
+> JS/TS линтер (eslint) [eslint](https://eslint.org/) лежит в [этой папке](https://github.com/er-ant/er-ant-dev-notes-RU/tree/main/TypeScript/lints).
 >
-> TS линтер (eslint) для ангуляр проектов [здесь]()
->
-> TS линтер ([tslint](https://github.com/palantir/tslint) DEPRECATED) для ангуляр проектов [здесь]()
+> TS линтер ([tslint](https://github.com/palantir/tslint) DEPRECATED) для ангуляр проектов [здесь](https://github.com/er-ant/er-ant-dev-notes-RU/blob/main/TypeScript/tslint.json).
 
 ## Стайлгайд
 Во многом это правила, которые выросли на наблюдении годами за кодом разработчиков на разных языках. Правила описанные здесь могут быть применимы и в других языках и фреймворках. 
@@ -57,3 +55,6 @@
 1. Модульная архитектура
 1. Функциональное программирование
    - Чистые функции
+
+## Настройка прекоммит хуков
+> In progress...
