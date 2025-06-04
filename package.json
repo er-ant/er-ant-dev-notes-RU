@@ -1,0 +1,12 @@
+{
+  "name": "er-ant-dev-notes-ru",
+  "version": "1.0.0",
+  "description": "Здесь собраны мои заметки, наблюдения и заключения за многолетний опыт разработки.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
