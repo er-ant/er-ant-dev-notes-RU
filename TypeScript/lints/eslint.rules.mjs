@@ -99,7 +99,7 @@ export const ESLINTRULES = {
   "func-names": ["error", "always", {
     "generators": "as-needed"
   }],
-  "func-style": ["error", "expression"],
+  "func-style": ["error", "declaration", { "allowArrowFunctions": true }],
   "grouped-accessor-pairs": ["error", "getBeforeSet"],
   "guard-for-in": ["off"],
   "init-declarations": ["off"],
