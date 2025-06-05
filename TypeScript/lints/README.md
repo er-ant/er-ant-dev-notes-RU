@@ -39,7 +39,7 @@
 ## Настройка и запуск
 ### Установка обязательных пакетов
 ```
-  npm i eslint@9.27.0 @eslint/js@9.27.0
+  npm i eslint@9.27.0 @eslint/js@9.27.0 globals
 ```
 ### Установка плагина stylistic (опционально)
 ```
@@ -54,7 +54,7 @@
   npm install git+https://github.com/er-ant/er-ant-dev-notes-RU.git
 ```
 ### Конфигурационный файл
-Добавить конфигурационный файл eslint.config.js в корень проекта. Логичнее всего настраивать под каждый проект свой конфиг. Пример:
+Добавить конфигурационный файл eslint.config.mjs в корень проекта. Логичнее всего настраивать под каждый проект свой конфиг. Пример:
 ```
 import eslint from '@eslint/js';
 import globals from 'globals';
@@ -102,10 +102,15 @@ export default tseslint.config(
   }
 );
 ```
+### Добавьте команду для вызова линта в package.json
+```
+  "lint": "npx eslint ."
+```
 ### Настройка IDE
 Также необходимо сделать дополнительную настройку IDE при сохранении файла (ctrl + s):
 - trim whitespaces
 - add EOL
+
 Это можно сделать скопировав [.editorconfig](https://github.com/er-ant/er-ant-dev-notes-RU/blob/main/.editorconfig) в корень проекта или настроив IDE вручную.
 ### Опционально:
 Ознакомиться с "Disputable code style rules" в наборах правил и настроить под свой проект.
