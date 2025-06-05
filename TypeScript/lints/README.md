@@ -25,6 +25,16 @@
 - https://github.com/nrwl/nx/blob/master/packages/eslint-plugin/src/flat-configs/typescript.ts
 - https://advancedfrontends.com/eslint-flat-config-typescript-javascript/
 
+### Angular lint [In progress]
+В дальнейшем будет добавлены конфигурация и правила для ангуляра
+- [набор правил ангуляр кода](https://github.com/angular-eslint/angular-eslint/blob/main/packages/eslint-plugin/README.md)
+- [набор правил ангуляр темплейтов](https://github.com/angular-eslint/angular-eslint/blob/main/packages/eslint-plugin-template/README.md)
+- [репозиторий линтера](https://github.com/angular-eslint/angular-eslint)
+- [пример конфига 1 общий](https://github.com/angular-eslint/angular-eslint/tree/main/packages/angular-eslint/src/configs)
+- [пример конфига 2 ангуляр](https://github.com/nrwl/nx/blob/master/packages/eslint-plugin/src/flat-configs/angular.ts)
+- [пример конфига 3 ангуляр темплейты](https://github.com/nrwl/nx/blob/master/packages/eslint-plugin/src/flat-configs/angular-template.ts)
+
+
 ### Логика формирования правил
 Каждое правило проверялось руками, но всеравно могут быть неточности.
 > Правила, в работе которых я не уверен помечены как warn (в дальнейшем будут настроены off или error).
@@ -39,19 +49,19 @@
 ## Настройка и запуск
 ### Установка обязательных пакетов
 ```
-  npm i eslint@9.27.0 @eslint/js@9.27.0 globals
+npm i eslint@9.27.0 @eslint/js@9.27.0 globals
 ```
 ### Установка плагина stylistic (опционально)
 ```
-  npm i @stylistic/eslint-plugin@4.4.0
+npm i @stylistic/eslint-plugin@4.4.0
 ```
 ### Установка плагина typescript (опционально)
 ```
-  npm i typescript typescript-eslint@8.33.0
+npm i typescript typescript-eslint@8.33.0
 ```
 ### Установка этого репозитория для использования правил
 ```
-  npm install git+https://github.com/er-ant/er-ant-dev-notes-RU.git
+npm install git+https://github.com/er-ant/er-ant-dev-notes-RU.git
 ```
 ### Конфигурационный файл
 Добавить конфигурационный файл eslint.config.mjs в корень проекта. Логичнее всего настраивать под каждый проект свой конфиг. Пример:
@@ -136,6 +146,7 @@ export default tseslint.config(
 ## TODO:
 1. Добавить прекоммит.
 1. Добавить форматтер для кода.
+1. Добавить настройки для tsconfig.json
 1. Добавить гайд по настройке линта для IDE.
 1. Сделать конфиги переиспользуемыми как в официальных гайдах.
 1. Оптимизировать работу линта по [гайду](https://typescript-eslint.io/troubleshooting/typed-linting/performance/).

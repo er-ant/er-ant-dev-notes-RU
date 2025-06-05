@@ -43,7 +43,6 @@ export const STYLISTIC_ESLINTRULES = {
   "@stylistic/lines-around-comment": ["off"],
   "@stylistic/lines-between-class-members": ["error", {
     "enforce": [
-      { "blankLine": "never", "prev": "field", "next": "field" },
       { "blankLine": "always", "prev": "field", "next": "method" },
       { "blankLine": "always", "prev": "method", "next": "method" },
     ]
