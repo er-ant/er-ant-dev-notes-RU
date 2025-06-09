@@ -63,15 +63,7 @@
     "no-bitwise": false,
     "no-conditional-assignment": true,
     "no-consecutive-blank-lines": [true, 1],
-    "no-console": [
-      true,
-      "log",
-      "debug",
-      "info",
-      "time",
-      "timeEnd",
-      "trace"
-    ],
+    "no-console": [true, { allow: ["warn", "error"] }],
     "no-construct": true,
     "no-debugger": true,
     "no-duplicate-imports": true,
