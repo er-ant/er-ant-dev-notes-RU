@@ -3,77 +3,50 @@
 ## Описание
 Этих линтовых правил я придерживаюсь годами. Первично они были описаны на устаревшем плагине tslint.
 
-В 2025 наконец появились необходимость и возможность переписать их с современными инструментами, которые стали поддерживать много необходимых функций.
+В 2025 году наконец появились необходимость и возможность переписать их на современных инструментах, которые стали поддерживать большинство нужных функций — тех самых, которых так не хватало в 2010-х.
 
 Используются следующие библиотеки:
-- [eslint](https://eslint.org/) 9.27.0 - ядро проверяющее кодовую базу
-- eslint/js 9.27.0 - библиотека для проверки JS/TS (команда ESLint стремится сделать ESLint уникальным инструментом, в который можно подключить любые языки)
-- [stylistic/eslint-plugin](https://eslint.style/) 4.4.0 - плагин для ESLint позволяющий делать проверки оформления кода, раньше была ядром ESLint и typescript-eslint
-- [typescript-eslint](https://typescript-eslint.io/) 8.33.0 - плагин для ESLint обеспечивающий поддержку TS
+- [eslint](https://eslint.org/) - ядро проверяющее кодовую базу. По умолчанию включает в себя eslint/js - библиотека для проверки JS/TS (команда ESLint стремится сделать ESLint уникальным инструментом, в который можно подключить любые языки).
+- [stylistic/eslint-plugin](https://eslint.style/) - плагин для ESLint позволяющий делать проверки оформления кода, раньше была ядром ESLint и typescript-eslint.
+- [typescript-eslint](https://typescript-eslint.io/) - плагин для ESLint обеспечивающий поддержку TS.
 
-Наборы линтовых правил лежат в папке lints.
+Наборы линтовых правил и примеры конфигов (с версионированием) лежат в этом [репозитории.](https://github.com/er-ant/er-ant-lints)
 
-Файл с настройками для IDE в корне репозитория [.editorconfig](https://github.com/er-ant/er-ant-dev-notes-RU/blob/main/.editorconfig).
-
-Можно использовать отдельно eslint без плагинов и настраивать под себя, переопределяя мои правила.
-
-Идеальная связка это линтеры + форматтер, который автоматически форматирует код по НЕКОТОРЫМ правилам.
-
-### Prettier [In progress]
-Скорее всего в дальнейшем будет настроен Prettier. Референсы:
-- https://prettier.io/docs/install
-- https://github.com/nrwl/nx/blob/master/packages/eslint-plugin/src/flat-configs/typescript.ts
-- https://advancedfrontends.com/eslint-flat-config-typescript-javascript/
-
-### Angular lint [In progress]
-В дальнейшем будет добавлены конфигурация и правила для ангуляра
-- [набор правил ангуляр кода](https://github.com/angular-eslint/angular-eslint/blob/main/packages/eslint-plugin/README.md)
-- [набор правил ангуляр темплейтов](https://github.com/angular-eslint/angular-eslint/blob/main/packages/eslint-plugin-template/README.md)
-- [репозиторий линтера](https://github.com/angular-eslint/angular-eslint)
-- [пример конфига 1 общий](https://github.com/angular-eslint/angular-eslint/tree/main/packages/angular-eslint/src/configs)
-- [пример конфига 2 ангуляр](https://github.com/nrwl/nx/blob/master/packages/eslint-plugin/src/flat-configs/angular.ts)
-- [пример конфига 3 ангуляр темплейты](https://github.com/nrwl/nx/blob/master/packages/eslint-plugin/src/flat-configs/angular-template.ts)
-
-
-### Логика формирования правил
-Каждое правило проверялось руками, но всеравно могут быть неточности.
-> Правила, в работе которых я не уверен помечены как warn (в дальнейшем будут настроены off или error).
-
-В файлах с линтовыми правилами есть коментарии:
-- пояснения конфигурации правила
-- разбиты на группы правил
-- добавлен блок для обсуждаемых правил (Disputable code style rules), которые могут отличаться у каждого проекта
+Можно использовать отдельно eslint без плагинов и настраивать под себя, переопределяя или расширяя мои правила.
 
 Регулярные выражения и нейминги лучше всего настраивать индивидуально поверх моих правил.
+
+### Angular lint
+[Гайд настройки для ангуляра тут.](https://github.com/er-ant/er-ant-dev-notes-RU/blob/main/TypeScript/lints/angular-manual.guide.md)
 
 ## Настройка и запуск
 ### Установка обязательных пакетов
 ```
-npm i eslint@9.27.0 @eslint/js@9.27.0 globals
+npm i eslint@9.27.0 globals --save-dev
 ```
 ### Установка плагина stylistic (опционально)
 ```
-npm i @stylistic/eslint-plugin@4.4.0
+npm i @stylistic/eslint-plugin@4.4.0 --save-dev
 ```
 ### Установка плагина typescript (опционально)
 ```
-npm i typescript typescript-eslint@8.33.0
+npm i typescript typescript-eslint@8.33.0 --save-dev
 ```
-### Установка этого репозитория для использования правил
+### Установка репозитория c правилами
 ```
-npm install git+https://github.com/er-ant/er-ant-dev-notes-RU.git
+npm install git+https://github.com/er-ant/er-ant-lints --save-dev
 ```
 ### Конфигурационный файл
 Добавить конфигурационный файл eslint.config.mjs в корень проекта. Логичнее всего настраивать под каждый проект свой конфиг. Пример:
 ```
-import eslint from '@eslint/js';
 import globals from 'globals';
+import eslint from '@eslint/js';
 import stylistic from '@stylistic/eslint-plugin'
 import tseslint from 'typescript-eslint';
 
-import { ESLINTRULES } from 'er-ant-dev-notes-RU/TypeScript/lints/eslint.rules.mjs';
-import { STYLISTIC_ESLINTRULES } from 'er-ant-dev-notes-RU/TypeScript/lints/stylistic.eslint.rules.mjs';
-import { TS_ESLINTRULES } from 'er-ant-dev-notes-RU/TypeScript/lints/ts-eslint.rules.mjs';
+import { ESLINTRULES } from 'er-ant-lints/eslint/v1/eslint.rules.mjs';
+import { STYLISTIC_ESLINTRULES } from 'er-ant-lints/eslint/v1/stylistic.eslint.rules.mjs';
+import { TS_ESLINTRULES } from 'er-ant-lints/eslint/v1/ts-eslint.rules.mjs';
 
 export default tseslint.config(
   {
@@ -86,7 +59,7 @@ export default tseslint.config(
     languageOptions: {
       // Необходимо для поддержки typescript-eslint
       parser: tseslint.parser,
-      // Необходимо для запуска на приложении
+      // Необходимо для запуска на приложении (module) и для скриптов (script) и для nodejs приложений (commonjs)
       sourceType: 'module',
       // Автоматически берет самую актуальную версию, лучше проставлять текущую версию из настроек проекта
       ecmaVersion: 'latest',
@@ -112,18 +85,13 @@ export default tseslint.config(
   }
 );
 ```
-### Добавьте команду для вызова линта в package.json
+### Добавить команду для вызова линта в package.json
 ```
   "lint": "npx eslint ."
 ```
-### Настройка IDE
-Также необходимо сделать дополнительную настройку IDE при сохранении файла (ctrl + s):
-- trim whitespaces
-- add EOL
-
-Это можно сделать скопировав [.editorconfig](https://github.com/er-ant/er-ant-dev-notes-RU/blob/main/.editorconfig) в корень проекта или настроив IDE вручную.
 ### Опционально:
-Ознакомиться с "Disputable code style rules" в наборах правил и настроить под свой проект.
+- Ознакомиться с "Disputable and configurable code style rules" в наборах правил и настроить под свой проект.
+- Настроить подсветку линтов от IDE.
 
 ## Работа с правилами линта
 > **Автофикс правил - имеет много подводных камней, лучше применять его только для стилистических правил.**
@@ -134,19 +102,17 @@ export default tseslint.config(
 /* Причина */
 /* eslint-enable no-alert, no-console */
 ```
-> Отключение правила лучше согласовать с тимлидом и командой
+> Отключение правила лучше согласовать с тимлидом и командой.
 
 ### Договоренности:
 В Array.reduce переменная аккумулятора должна называться `acc` для правила `no-param-reassign`.
 
 ## Заметки
-1. TS требует детальной проверки типов, [она замедляет работу линта](https://typescript-eslint.io/getting-started/typed-linting#performance).
-1. При конфигурации правил можно использовать [инспектор](https://github.com/eslint/config-inspector).
+1. TS требует детальной проверки типов, [она замедляет работу линта.](https://typescript-eslint.io/getting-started/typed-linting#performance)
+1. При конфигурации правил можно использовать [инспектор.](https://github.com/eslint/config-inspector)
+1. По желанию можно настроить [Prettier,](https://prettier.io/docs/install) сторонником которого я не являюсь.
 
 ## TODO:
-1. Добавить прекоммит.
-1. Добавить форматтер для кода.
 1. Добавить настройки для tsconfig.json
-1. Добавить гайд по настройке линта для IDE.
 1. Сделать конфиги переиспользуемыми как в официальных гайдах.
-1. Оптимизировать работу линта по [гайду](https://typescript-eslint.io/troubleshooting/typed-linting/performance/).
+1. Сделать гайд по интеграции с Prettier.
